@@ -393,7 +393,7 @@ sub setup_line_context_for_file {
     return;
 }
 
-=for Developers
+=begin Developers
 
 This subroutine jumps through a number of optimization hoops to
 try to be fast in the more common use cases of ack.  For one thing,
@@ -404,6 +404,8 @@ and normal searching.  Any changes that happen to one should propagate
 to the others if they make sense.  The non-context branches also inline
 does_match for performance reasons; any relevant changes that happen here
 must also happen there.
+
+=end Developers
 
 =cut
 
@@ -759,11 +761,13 @@ sub print_line_if_context {
 
 # does_match() MUST have an $opt_regex set.
 
-=for Developers
+=begin Developers
 
 This subroutine is inlined a few places in print_matches_in_resource
 for performance reasons, so any changes here must be copied there as
 well.
+
+=end Developers
 
 =cut
 
@@ -1050,7 +1054,9 @@ RESOURCES:
     App::Ack::exit_from_ack( $nmatches );
 }
 
+=pod
 
+=encoding UTF-8
 
 =head1 NAME
 
@@ -1956,7 +1962,7 @@ expression metacharacter!)
 
 =head2 Why does C<"ack '.{40000,}'"> fail?  Isn't that a valid regex?
 
-The Perl language limits the repetition quanitifier to 32K.  You
+The Perl language limits the repetition quantifier to 32K.  You
 can search for C<.{32767}> but not C<.{32768}>.
 
 =head2 Ack does "X" and shouldn't, should it?
@@ -2235,6 +2241,9 @@ L<https://github.com/petdance/ack2>
 How appropriate to have I<ack>nowledgements!
 
 Thanks to everyone who has contributed to ack in any way, including
+Nick Morrott,
+Austin Chamberlin,
+Varadinsky,
 SE<eacute>bastien FeugE<egrave>re,
 Jakub Wilk,
 Pete Houston,
